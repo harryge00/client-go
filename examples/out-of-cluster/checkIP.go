@@ -58,9 +58,8 @@ func main() {
 		panic(err.Error())
 	}
 	for _, pod := range pods.Items {
-		if pod.Annotations["ips"] != "" && strings.Contains(pod.Name, os.Args[2]) {
-			ips := strings.Split(pod.Annotations["ips"], "-")
-			fmt.Println(pod.OwnerReferences[0].Name, ips[1])
+		if pod.Annotations["ips"] == "" && pod.Labels["network"] != ""{
+			fmt.Println(pod.Name)
 		}
 	}
 	//for key, val := range occupied_map {
