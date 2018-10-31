@@ -37,7 +37,7 @@ func main() {
 		panic(err.Error())
 	}
 	for {
-		pods, err := clientset.CoreV1().Pods("").List(metav1.ListOptions{})
+		pods, err := clientset.CoreV1().Pods("default").List(metav1.ListOptions{})
 		if err != nil {
 			panic(err.Error())
 		}
